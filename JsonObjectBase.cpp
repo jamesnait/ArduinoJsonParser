@@ -14,7 +14,7 @@ int JsonObjectBase::getNestedTokenCount(jsmntok_t* token)
 
 	for (int i = 0; i < token->size; i++)
 	{
-		if (token->type == JSMN_ARRAY) {
+		if (token->type == JSMN_OBJECT || token->type == JSMN_ARRAY) {
 			count += 1 + getNestedTokenCount(token + count + 1);
 		} else {
 			count += 1 + getNestedTokenCount(token + 1 + i);
